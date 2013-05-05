@@ -17,3 +17,7 @@ https://www.youtube.com/watch?v=nHes8XW1VHw
 http://www.datastax.com/dev/blog/advanced-time-series-with-cassandra
 
 4.http://www.rustyrazorblade.com/2012/10/cassandra-cql3-and-time-series-data-with-timeuuid/
+
+5. [Meta] - http://www.tikalk.com/time-based-data-aggregation-cassandra
+
+6.http://www.datastax.com/dev/blog/thrift-to-cql3
