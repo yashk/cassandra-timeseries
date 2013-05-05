@@ -15,3 +15,5 @@ https://www.youtube.com/watch?v=nHes8XW1VHw
 3.Advanced Time Series with Cassandra
 
 http://www.datastax.com/dev/blog/advanced-time-series-with-cassandra
+
+4.http://www.rustyrazorblade.com/2012/10/cassandra-cql3-and-time-series-data-with-timeuuid/
