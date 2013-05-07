@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="2.4" jmeter="2.9 r1437961">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Test Plan" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">10000</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">0</stringProp>
+        <longProp name="ThreadGroup.start_time">1367431752000</longProp>
+        <longProp name="ThreadGroup.end_time">1367431752000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <com.netflix.jmeter.properties.CassandraProperties guiclass="TestBeanGUI" testclass="com.netflix.jmeter.properties.CassandraProperties" testname="Local_Cluster" enabled="true">
+          <stringProp name="cassandraServers">localhost:9160</stringProp>
+          <stringProp name="clientType">com.netflix.jmeter.connections.a6x.AstyanaxConnection</stringProp>
+          <stringProp name="clusterName">Test Cluster</stringProp>
+          <stringProp name="keyspace">sensors</stringProp>
+          <stringProp name="maxConnsPerHost">10</stringProp>
+          <stringProp name="readConsistency">CL_ONE</stringProp>
+          <stringProp name="writeConsistency">CL_ONE</stringProp>
+        </com.netflix.jmeter.properties.CassandraProperties>
+        <hashTree/>
+        <com.netflix.jmeter.properties.SchemaProperties guiclass="TestBeanGUI" testclass="com.netflix.jmeter.properties.SchemaProperties" testname="SchemaProperties" enabled="true">
+          <stringProp name="column_family">test</stringProp>
+        </com.netflix.jmeter.properties.SchemaProperties>
+        <hashTree/>
+        <com.netflix.jmeter.sampler.PutSampler guiclass="com.netflix.jmeter.gui.Put" testclass="com.netflix.jmeter.sampler.PutSampler" testname="Cassandra Put" enabled="true">
+          <stringProp name="TestPlan.comments">test comment</stringProp>
+          <stringProp name="KEY_SERIALIZER_TYPE">StringSerializer</stringProp>
+          <stringProp name="KEY">${__BeanShell(Thread.currentThread().getName())}</stringProp>
+          <stringProp name="COLUMN_FAMILY">test</stringProp>
+          <stringProp name="COLUMN_SERIALIZER_TYPE">DateSerializer</stringProp>
+          <stringProp name="VALUE_SERIALIZER_TYPE">AsciiSerializer</stringProp>
+          <stringProp name="COLUMN_NAME">${__time(,)}</stringProp>
+          <stringProp name="VALUE">${__FileToString(/Users/yash/Downloads/GPS_Sensor_Sample.v11.suo,,)}</stringProp>
+          <boolProp name="IS_COUNTER">false</boolProp>
+        </com.netflix.jmeter.sampler.PutSampler>
+        <hashTree/>
+        <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+          <boolProp name="useGroupName">true</boolProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
