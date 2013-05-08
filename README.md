@@ -21,3 +21,7 @@ http://www.datastax.com/dev/blog/advanced-time-series-with-cassandra
 5. Meta - http://www.tikalk.com/time-based-data-aggregation-cassandra
 
 6.http://www.datastax.com/dev/blog/thrift-to-cql3
+
+7.http://www.quora.com/Cassandra-database/What-are-good-ways-to-design-data-model-in-Cassandra-for-historical-data
+
+8.http://www.ebaytechblog.com/2012/08/14/cassandra-data-modeling-best-practices-part-2/
