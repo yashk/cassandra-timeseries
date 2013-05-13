@@ -25,3 +25,5 @@ http://www.datastax.com/dev/blog/advanced-time-series-with-cassandra
 7.http://www.quora.com/Cassandra-database/What-are-good-ways-to-design-data-model-in-Cassandra-for-historical-data
 
 8.http://www.ebaytechblog.com/2012/08/14/cassandra-data-modeling-best-practices-part-2/
+
+9.http://www.datastax.com/dev/blog/cql3-for-cassandra-experts
